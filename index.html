@@ -5,12 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        p{
-            
+        nav{
+            align-items: center;
+            -webkit-box-align: center;
+        }
+        ul {
+            background-color: hotpink;
+            list-style-type: none;
+            top: 0%;
+            width: 100%;
+            position: sticky;
+        }
+        li {
+            float: left;
+        }
+        li a {
+            display: block;
+            padding: 14px 16px;
+            background-color: thistle;
+        }
+        li a:hover {
+            background-color: hotpink;
         }
     </style>
 </head>
 <body>
-    <p>There will be more content along with the learning process.</p>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#articles">Articles</a></li>
+            <li style="float:right"><a href="#about">About</a></li>
+        </ul>
+    </nav>
+    <h1 style="display: block;padding: 20px;">There will be more content along with the learning process.</h1>
 </body>
 </html>
