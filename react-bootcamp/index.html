@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First React App</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel">
+    const name = 'Inlite'
+    const handle = '@inlite'
+    const headerElement = React.createElement(
+      'h1',
+      { id: 'header' },
+      'Created by createElement, and presented by render'
+    )
+
+    function NameComponent (props) {
+      return React.createElement(
+        'h1',
+        null,
+        props.name
+      )
+    }
+    function HandleComponent (props) {
+      return React.createElement(
+        'h3',
+        null,
+        props.handle
+      )
+    }
+
+
+
+
+    const nameElement = React.createElement(
+        'h1',
+        null,
+        name
+    )
+
+    const handleElement = React.createElement(
+        'h3',
+        null,
+        handle
+    )
+    const wrapperElement = React.createElement(
+        'div',
+        {id: 'container'},
+        React.createElement(NameComponent, {name: 'The name is props.name'}),
+        React.createElement(HandleComponent, {handle: '@inlite'})
+    )
+    console.log('wrapperElement', wrapperElement)
+    ReactDOM.render(
+        headerElement,
+        document.getElementById('app')
+    )
+
+    function FriendsList (props) {
+      return (
+        <ul>
+          {props.list.map((name) => (
+            <li key = {name}>
+              <span>{name}</span>
+              <button conClick = {() => props.onRemoveFriend(name)}>Remove</button> //error function
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    class App extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          friends: ['listElement1', 'listElement2']
+        }
+      }
+      handleAddFriend(){
+
+      }
+      handleRemoveFriend(){
+        this.setState((currentState) => {
+          return {
+            friends: currentState.friends.filter((friend) => friend !== name)
+          }
+        })
+      }
+      render() {
+        return(
+          <div>
+            <FriendsList 
+              list={this.state.friends} 
+              onRemoveFriend={this.handleRemoveFriend}
+            />
+          </div>
+        )
+      }
+    }
+
+    function App() {
+      const friends = ['Sun', 'Moon', 'Tauns']
+      return (
+        <div id='container'>
+          <FriendsList list = {friends} />
+        </div>
+      )
+    }
+
+    ReactDOM.render(
+        <App />,
+        document.getElementById('app')
+    )
+  </script>
+</body>
+</html>
