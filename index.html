@@ -37,6 +37,27 @@
             <li style="float:right"><a href="#about">About</a></li>
         </ul>
     </nav>
-    <h1 style="display: block;padding: 20px;">There will be more content along with the learning process.</h1>
+    <h1 style="display: block;padding: 50px;">There will be more content along with the learning process.</h1>
+    <h2>Note</h2>
+    <h3>Try Using Object in Javascript</h3>
+    <p>
+        <pre>
+            while(line = readline()){
+                let obj = {} 
+                for(let i=0;i&lt;parseInt(line);i++){ 
+                    let [k,v] = readline().split(' '); 
+                    if(obj[k]){
+                        obj[k] += parseInt(v)
+                    }else{
+                        obj[k] = parseInt(v)
+                    }
+                }
+                for(let j in obj){
+                    console.log(j + ' ' + obj[j]);
+                }
+            }
+        </pre>
+        
+    </p>
 </body>
 </html>
