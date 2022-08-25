@@ -1,0 +1,5 @@
+trs/
+json-by-year/
+
+*.trs
+*.json
