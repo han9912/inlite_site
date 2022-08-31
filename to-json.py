@@ -7,8 +7,8 @@ from datetime import date, datetime, timedelta
 import tqdm
 
 
-filename = 'trs\szwb-0.txt'
-json_filename = 'json\szwb-0-debug.json'
+filename = 'trs\szwb-1.txt'
+json_filename = 'json\szwb.json'
 record_dict = {}
 null_record = {
     'title': NULL,
@@ -33,7 +33,7 @@ with open(filename, encoding='UTF-8') as open_file:
     'page':NULL,
     'page_name':NULL
     }
-    json_file = open(json_filename, "a")
+    json_file = open(json_filename, "a", encoding='UTF-8')
     last_date = '19000101'
     index_inday = 0
     file = open_file.readlines()
@@ -62,24 +62,24 @@ with open(filename, encoding='UTF-8') as open_file:
                 'page_name':NULL
             }
         if line.startswith('<title>='):
-            data_record['title'] = line.removeprefix('<title>=') 
+            data_record['title'] = line.removeprefix('<title>=').strip() 
         if line.startswith('<authors>='):
-            data_record['author'] = line.removeprefix('<authors>=') 
+            data_record['author'] = line.removeprefix('<authors>=').strip() 
         if line.startswith('<pub_time>='):
             data_record['date'] = line[11:21].replace('/', '-') 
         if line.startswith('<content>='):
-            data_record['content'] = line.removeprefix('<content>=')
+            data_record['content'] = line.removeprefix('<content>=').strip() 
             temp_i = i + 1
             while not(file[temp_i].startswith('<')):
-                data_record['content'] = data_record['content'] + file[temp_i]
+                data_record['content'] = data_record['content'] + file[temp_i].strip() 
                 temp_i = temp_i + 1
         if line.startswith('<category1>='):
-            data_record['category1'] = line.removeprefix('<category1>=') 
+            data_record['category1'] = line.removeprefix('<category1>=').strip() 
         if line.startswith('<category2>='):
-            data_record['category2'] = line.removeprefix('<category2>=') 
+            data_record['category2'] = line.removeprefix('<category2>=').strip() 
         if line.startswith('<bc>='):
-            data_record['page'] = line.removeprefix('<bc>=') 
+            data_record['page'] = line.removeprefix('<bc>=').strip()  
         if line.startswith('<bm>='):
-            data_record['page_name'] = line.removeprefix('<bm>=') 
+            data_record['page_name'] = line.removeprefix('<bm>=').strip()  
     print('begin dumping to json')
-    json.dump(record_dict, json_file, indent= 4, separators=(',' ':'), )
+    json.dump(record_dict, json_file, ensure_ascii=False, sort_keys=True, indent= 4, separators=(',' ':'))
