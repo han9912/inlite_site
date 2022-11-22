@@ -30,4 +30,3 @@ const obj = {
 }
 
 obj.hello()
-const
