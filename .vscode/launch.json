@@ -5,6 +5,48 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch UseArrayList",
+            "request": "launch",
+            "mainClass": "java_workspace.UseArrayList",
+            "projectName": "inlite_site_8815db26"
+        },
+        {
+            "type": "java",
+            "name": "Launch LoopEnum",
+            "request": "launch",
+            "mainClass": "java_workspace.LoopEnum",
+            "projectName": "inlite_site_8815db26"
+        },
+        {
+            "type": "java",
+            "name": "Launch SummonPig",
+            "request": "launch",
+            "mainClass": "java_workspace.SummonPig",
+            "projectName": "inlite_site_8815db26"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "java_workspace.Main",
+            "projectName": "inlite_site_8815db26"
+        },
+        {
+            "type": "java",
+            "name": "Launch Standby",
+            "request": "launch",
+            "mainClass": "java_workspace.Standby",
+            "projectName": "inlite_site_8815db26"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "inlite_site_8815db26"
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
